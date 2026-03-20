@@ -2,6 +2,13 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
+@app.route('/')
+def home():
+    data = {
+        "Message from backend": "Welcome to the Flask API! (Your backend is working correctly)",
+    }
+    return jsonify(data)
+
 @app.route('/api/submit', methods=['POST'])
 def submit():
     data = request.json
